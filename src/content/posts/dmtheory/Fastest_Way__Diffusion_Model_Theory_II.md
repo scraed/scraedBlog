@@ -17,9 +17,10 @@ DDPMs [^Ho2020DenoisingDP] are models that generate high-quality images from noi
 The forward diffusion process of the DDPM provides necessary information to train a DDPM. It gradually adds noise to existing images $\mathbf{x}_0 \sim p(x)$ using the Ornstein-Uhlenbeck diffusion process (OU process) [^Uhlenbeck1930OnTT] within a finite time interval $t\in [0,T]$. The OU process is defined by the stochastic differential equation (SDE):
 
 $$
-d \mathbf{x}_t = - \frac{1}{2} \mathbf{x}_t dt + d\mathbf{W}_t,
+d \mathbf{x}_t = - \frac{1}{2} \mathbf{x}_t dt + d\mathbf{W}_t, \label{1-1}\tag{1-1}
 $$
 
+\eqref{1-1}
 in which $t$ is the forward time of the diffusion process, $\mathbf{x}_t$ is the noise contaminated image at time $t$, and $\mathbf{W}_t$ is a Brownian noise.
 
 The forward diffusion process has the standard Gaussian $\mathcal{N}(\mathbf{0},I)$ as its stationary distribution. Moreover, regardless of the initial distribution $p_0(\mathbf{x})$ of positions $\{\mathbf{x}_0^{(i)}\}_{i=1}^N$, their probability density $p_t(\mathbf{x})$ at time $t$ converges to $\mathcal{N}(\mathbf{x}| \mathbf{0}, I)$ as $t \to \infty$.  
