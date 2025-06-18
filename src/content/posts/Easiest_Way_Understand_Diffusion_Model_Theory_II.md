@@ -81,7 +81,7 @@ q_T(\mathbf{x}) = p_0(\mathbf{x}).
 $$
 
 This establishes an exact correspondence between the forward diffusion process and the backward diffusion process.
-## References
+
 
 [^Ho2020DenoisingDP]: Ho, J., Jain, A., & Abbeel, P. (2020). Denoising diffusion probabilistic models. Advances in Neural Information Processing Systems, 33.
 [^Uhlenbeck1930OnTT]: Uhlenbeck, G. E., & Ornstein, L. S. (1930). On the theory of the Brownian motion. Physical Review, 36(5), 823.
