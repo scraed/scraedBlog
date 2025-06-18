@@ -11,9 +11,9 @@ draft: false
 
 The **Diffusion Process** forms the mathematical foundation of diffusion models, describing a system's evolution through deterministic drift and stochastic noise. Here we consider a diffusion process of the following form of *stochastic differential equation (SDE)*:
 
-\begin{equation}
-d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t, 
-\end{equation}
+$$
+d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t, \label{sde}
+$$
 
 where the drift term $\boldsymbol{\mu}(\mathbf{x}_t, t) \, dt$ governs deterministic motion, while $d\mathbf{W}_t$ adds Brownian noise.
 
