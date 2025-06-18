@@ -26,7 +26,7 @@ $$
 where $\boldsymbol{\epsilon}_i$ are independent standard Gaussian noises with mean $\mathbf{0}$ and identity covariance matrix $I$. The limit in this definition shows that $d\mathbf{W}$ is not just a single Gaussian random variable with mean $\mathbf{0}$, but rather the cumulative effect of infinitely many independent Gaussian increments. Such cumulation allows us to compute the covariance of $d\mathbf{W}$ as vector product:
 
 $$
-d\mathbf{W}_t \cdot d\mathbf{W}_t^T = \Cov(d\mathbf{W}_t, d\mathbf{W}_T) = I \, dt,  
+d\mathbf{W}_t \cdot d\mathbf{W}_t^T = \mbox{Cov}(d\mathbf{W}_t, d\mathbf{W}_T) = I \, dt,  
 $$
 
 where $I$ is the identity matrix. When no quadratic terms of $d\mathbf{W}_t$ are involved, $d\mathbf{W}_t$ can often be roughly treated as $\sqrt{dt} \, \boldsymbol{\epsilon}$, where $\boldsymbol{\epsilon} \sim \mathcal{N}(0,1)$ is a standard Gaussian random variable.
