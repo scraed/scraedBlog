@@ -1,5 +1,5 @@
 ---
-title: The Easiest Way to Diffusion Model Theory - II
+title: The Fastest Way to Diffusion Model Theory - II
 published: 2025-06-18
 tags: [Diffusion Model, Theory]
 category: Diffusion Model Theory
