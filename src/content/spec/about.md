@@ -1,9 +1,6 @@
 # About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
 
-::github{repo="saicaca/fuwari"}
+I am currently a post doc research at Hong Kong University of Science and Technology (HKUST). I received my Ph.D. in a joint program between the [Department of Mathematics](https://www.math.hkust.edu.hk/) at Hong Kong University of Science and Technology (HKUST) and the [Department of Mechanics and Aerospace Engineering](https://mae.sustech.edu.cn/en/) at the Southern University of Science and Technology (SUSTech), superivsed by Professor [Yang Wang](https://seng.hkust.edu.hk/about/people/faculty/yang-wang) and Professor [Shiyi Chen](https://www.sustech.edu.cn/en/faculties/english-chen-shiyi.html). My academic background includes a B.S. in Physics from SUSTech and a pure math Ph.D. qualification from HKUST. 
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+::github{repo="scraed/LanPaint"}
+::github{repo="scraed/CharacteristicGuidanceWebUI"}
