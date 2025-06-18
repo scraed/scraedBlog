@@ -5,14 +5,20 @@ tags: [Diffusion Model, Theory]
 category: Diffusion Model Theory
 draft: false
 ---
-# Diffusion Process and Langevin Dynamics
+When I first learned about diffusion models, I was introduced to them as a type of variational autoencoder (VAE) applied to a series of quantities $\mathbf{x}_0, \dots, \mathbf{x}_T$. Deriving the forward and reverse processes required lengthy derivations spanning multiple pages, dense with priors, posteriors, Bayesian theorems, and mathematical intricacies. Later, I encountered the stochastic differential equation (SDE) perspective, which frames diffusion models through Fokker-Planck and Kolmogorov backward equations—concepts no simpler to grasp than the VAE approach.  
+
+This blog series aims to introduce diffusion models using an elementary foundation. We’ll rely only on basic SDE principles and calculus to derive the core theory intuitively, revealing its intrinsic structure without advanced machinery.
+
+In this section, we cover the basics of Stochastic Differential Equations (SDEs), focusing on two fundamental concepts: 
+- **Brownian noise ($d\mathbf{W}$)**: The core random process driving SDE dynamics  
+- **Langevin Dynamics**: The basic SDE to generate samples from a probability distribution.
 
 ## Diffusion Process
 
 The **Diffusion Process** forms the mathematical foundation of diffusion models, describing a system's evolution through deterministic drift and stochastic noise. Here we consider a diffusion process of the following form of *stochastic differential equation (SDE)*:
 
 $$
-d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t, 
+d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t,
 $$
 
 where the drift term $\boldsymbol{\mu}(\mathbf{x}_t, t) \, dt$ governs deterministic motion, while $d\mathbf{W}_t$ adds Brownian noise.
@@ -66,6 +72,13 @@ where $0$ is obtained by substituting $\mathbf{s} = \nabla_\mathbf{x} \log p$. B
 
 ## Langevin Dynamics as 'Identity'
 
-The stationary of $p(\mathbf{x})$ is very important: The Langevin dynamics for $p(\mathbf{x})$ acts as an "identity" operation on the distribution, transforming samples from $p(\mathbf{x})$ into new samples from the same distribution. This property enables efficient derivations of both forward and backward diffusion processes for diffusion models.
+The stationary of $p(\mathbf{x})$ is very important: The Langevin dynamics for $p(\mathbf{x})$ acts as an "identity" operation on the distribution, transforming samples from $p(\mathbf{x})$ into new samples from the same distribution. This property enables what I believe is the simplest way to derive the forward and backward diffusion processes in diffusion models.
+
+## What is Next
+In the next section, we will use Langevin dynamics as a stepping stone to derive the forward and backward diffusion processes. We will examine their mathematical formulation and how they form a dual pair—each reversing the other’s evolution.
+
+Stay tuned for the next installment!
+
+
 
 ---

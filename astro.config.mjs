@@ -114,7 +114,22 @@ export default defineConfig({
 			parseDirectiveNode,
 		],
 		rehypePlugins: [
-			rehypeKatex,
+			[rehypeKatex, {
+				macros: {
+				  "\\eqref": "\\href{###1}{(\\text{#1})}",
+				  "\\ref": "\\href{###1}{\\text{#1}}",
+				  "\\label": "\\htmlId{#1}{}"
+				},
+				// Enable auto-numbering for equations
+				fleqn: false,
+				output: "html",
+				throwOnError: false,
+				displayMode: true,
+				strict: false,
+				trust: (context) => ['\\htmlId', '\\href'].includes(context.command),
+				// Enable equation numbering
+				globalGroup: true,
+			  }],
 			rehypeSlug,
 			[
 				rehypeComponents,
