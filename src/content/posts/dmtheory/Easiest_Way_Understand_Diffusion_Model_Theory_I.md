@@ -1,5 +1,5 @@
 ---
-title: The Easiest Way to Understand Diffusion Model Theory - I
+title: The Easiest Way to Diffusion Model Theory - I
 published: 2025-06-18
 tags: [Diffusion Model, Theory]
 category: Diffusion Model Theory
