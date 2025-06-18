@@ -90,6 +90,9 @@ In the next section, we will use Langevin dynamics as a stepping stone to derive
 
 Stay tuned for the next installment!
 
+## Discussion
+If you have questions, suggestions, or ideas to share, please visit the [discussion post](https://github.com/scraed/scraedBlog/discussions/4).
+
 
 
 ---
