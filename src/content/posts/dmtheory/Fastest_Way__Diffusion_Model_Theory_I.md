@@ -20,7 +20,7 @@ In this section, we cover the basics of Stochastic Differential Equations (SDEs)
 The **Diffusion Process** forms the mathematical foundation of diffusion models, describing a system's evolution through deterministic drift and stochastic noise. Here we consider a diffusion process of the following form of *stochastic differential equation (SDE)*:
 
 $$
-d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t, \label{1-1}\tag{1-1}
+d\mathbf{x}_t = \boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t, \label{1-1}
 $$
 
 where the drift term $\boldsymbol{\mu}(\mathbf{x}_t, t) \, dt$ governs deterministic motion, while $d\mathbf{W}_t$ adds Brownian noise.
@@ -42,7 +42,7 @@ where $I$ is the identity matrix. When no quadratic terms of $d\mathbf{W}_t$ are
 The Brownian noise $d\mathbf{W}_t$ scales as $\sqrt{dt}$, which fundamentally alters the rules of calculus for SDEs. A change of variable in ordinary calculus has $d s = \frac{d s}{d t} d t$, but for Brownian noise it is $d \mathbf{W}_s = \sqrt{\frac{d s}{d t}} d \mathbf{W}_t$. Moreover, the differentiation of a function is $d f(t, \mathbf{x}_t) = \partial_t f dt + \nabla_\mathbf{x} f \cdot d\mathbf{x}_t$ in ordinary calculus, but for SDE, it follows the Itô's lemma:
 
 $$
-df(t, \mathbf{x}_t) =  \partial_t f dt  + \nabla_\mathbf{x} f \cdot d \mathbf{x}_t  +  \underbrace{\frac{\sigma^2 }{2} \nabla^2_\mathbf{x} f \, dt}_{\text{stochastic effect}}. \label{Itô's lemma}\tag{Itô's lemma}
+df(t, \mathbf{x}_t) =  \partial_t f dt  + \nabla_\mathbf{x} f \cdot d \mathbf{x}_t  +  \underbrace{\frac{\sigma^2 }{2} \nabla^2_\mathbf{x} f \, dt}_{\text{stochastic effect}}. \label{Itô's lemma}
 $$
 
 This is derived by differentiating $f$ using the chain rule with the help of the SDE and covariance of $d\mathbf{W}_t$, while keeping all terms up to order $dt$ (note that $d\mathbf{W}$ scales as $\sqrt{dt}$). The emergence of the second-order Laplacian term $\nabla_\mathbf{x}^2 f$ is the key distinction from ordinary calculus. We will later use this lemma to analyze the evolution of the distribution of $\mathbf{x}_t$.
@@ -64,7 +64,7 @@ To verify stationarity, we will show that after evolution from time $0$ to $\Del
 
 $$
 \begin{aligned}
-\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] &\approx \Delta t \int p(\mathbf{x}) \left(\nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f\right) d\mathbf{x} \text{(to the first order)}\\
+\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] &\approx \Delta t \int p(\mathbf{x}) \left(\nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f\right) d\mathbf{x} \quad \text{(to the first order)}\\
 &= \Delta t \int f(\mathbf{x}) \left(-\nabla_\mathbf{x}\cdot(p\mathbf{s}) + \nabla^2_\mathbf{x} p\right) d\mathbf{x} \quad \text{(integration by parts)} \\
 &= \Delta t \int f(\mathbf{x}) \nabla_\mathbf{x}\cdot\left(-p\mathbf{s} + \nabla_\mathbf{x} p\right) d\mathbf{x}\\
 &=0,
