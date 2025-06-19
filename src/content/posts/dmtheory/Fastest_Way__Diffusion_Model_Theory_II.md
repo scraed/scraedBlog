@@ -22,7 +22,7 @@ In this section, we present the fundamental theory of Denoising Diffusion Probab
 - **Forward Diffusion Process**: How DDPMs gradually corrupt an image into pure Gaussian noise  
 - **Reverse Diffusion Process**: How DDPMs generate images by gradually denoising pure Gaussian noise
 
-**Prerequisites**: Calculus, [SDE and Langevin Dynamics](../Fastest_Way__Diffusion_Model_Theory_I/).
+**Prerequisites**: Calculus, [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/).
 
 
 # The Denoising Diffusion Probabilistic Model (DDPMs)  
