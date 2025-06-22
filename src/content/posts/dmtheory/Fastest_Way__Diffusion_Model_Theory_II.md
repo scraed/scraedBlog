@@ -134,7 +134,7 @@ This establishes an exact correspondence between the forward diffusion process a
 
 
 ## What is Next
-We demonstrated that **backward diffusion**—the dual of the forward process—can generate image data from noise. However, this requires access to the **score function** \(\mathbf{s}(\mathbf{x}, t) = \nabla_{\mathbf{x}} \log p_t(\mathbf{x})\) at every timestep \(t\). In practice, we approximate this function using a neural network.  In the [next section](../fastest_way__diffusion_model_theory_iii/), we will explain how to train such score networks.  
+We demonstrated that **backward diffusion**—the dual of the forward process—can generate image data from noise. However, this requires access to the **score function** $\mathbf{s}(\mathbf{x}, t) = \nabla_{\mathbf{x}} \log p_t(\mathbf{x})$ at every timestep $t$. In practice, we approximate this function using a neural network.  In the [next section](../fastest_way__diffusion_model_theory_iii/), we will explain how to train such score networks.  
 
 Stay tuned for the next installment!
 
