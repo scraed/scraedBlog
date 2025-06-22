@@ -77,6 +77,13 @@ $$
 
 where $0$ is obtained by substituting $\mathbf{s} = \nabla_\mathbf{x} \log p$. Because $\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] = 0$ for any test function $f$, this means the distribution of $\mathbf{x}_{\Delta t}$ must have been kept the same as $\mathbf{x}_0$.
 
+## Alternative form of the Langevin Dynamics:
+Recall that the term $d\mathbf{W}_t$ in Langevin dynamics scales as $\sqrt{dt}$. We can reformulate the Langevin dynamics by substituting $dt$ with $\frac{1}{2} dt$, resulting in the alternative form of the Langevin Dynamics:
+
+$$
+d\mathbf{x}_t = \frac{1}{2}\mathbf{s}(\mathbf{x}_t) dt + d\mathbf{W}_t.
+$$
+
 :::important
 ## Langevin Dynamics as 'Identity'
 
