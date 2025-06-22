@@ -7,7 +7,7 @@ draft: false
 ---
 When I first learned about diffusion models, I was introduced to them as a type of variational autoencoder (VAE) applied to a series of quantities $\mathbf{x}_0, \dots, \mathbf{x}_T$. Deriving the forward and reverse processes required lengthy derivations spanning multiple pages, dense with priors, posteriors, Bayesian theorems, and mathematical intricacies. Later, I encountered the stochastic differential equation (SDE) perspective, which frames diffusion models through Fokker-Planck and Kolmogorov backward equations—concepts no simpler to grasp than the VAE approach.  
 
-Instead, this blog series aims to offer a straightforward and self-contained introduction to diffusion models. We’ll rely only on basic SDE principles and calculus to derive the core theory intuitively, revealing its intrinsic structure without advanced machinery.
+Instead, this blog series aims to provide a fast, self-contained, and rigorous introduction to diffusion models. We will rely solely on fundamental SDE principles and calculus to intuitively derive the core theory, revealing its intrinsic structure without the need for advanced machinery.
 
 In this section, we cover the basics of Stochastic Differential Equations (SDEs), focusing on two fundamental concepts: 
 - **Brownian noise ($d\mathbf{W}$)**: The core random process driving SDE dynamics  
@@ -77,6 +77,10 @@ where $0$ is obtained by substituting $\mathbf{s} = \nabla_\mathbf{x} \log p$. B
 ## Langevin Dynamics as 'Identity'
 
 The stationary of $p(\mathbf{x})$ is very important: The Langevin dynamics for $p(\mathbf{x})$ acts as an "identity" operation on the distribution, transforming samples from $p(\mathbf{x})$ into new samples from the same distribution. This property enables what I believe is the simplest way to derive the forward and backward diffusion processes in diffusion models.
+
+![foo](langevin_id.png)
+
+
 :::
 
 ## Langevin Dynamics as Monte Carlo Sampler
@@ -86,7 +90,7 @@ Langevin dynamics can be used to generate samples from a distribution $p(\mathbf
 
 
 ## What is Next
-In the next section, we will use Langevin dynamics as a stepping stone to derive the forward and backward diffusion processes. We will examine their mathematical formulation and how they form a dual pair—each reversing the other’s evolution.
+In the [next section](../fastest_way__diffusion_model_theory_ii/), we will use Langevin dynamics as a stepping stone to derive the forward and backward diffusion processes. We will examine their mathematical formulation and how they form a dual pair—each reversing the other’s evolution.
 
 Stay tuned for the next installment!
 
