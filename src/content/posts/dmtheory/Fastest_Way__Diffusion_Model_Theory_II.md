@@ -46,7 +46,7 @@ $$
 
 in which $t$ is the forward time of the diffusion process, $\mathbf{x}_t$ is the noise contaminated image at time $t$, and $\mathbf{W}_t$ is a Brownian noise.
 
-Note that $-\mathbf{x}$ represents the score function of the standard Gaussian distribution $\mathcal{N}(\mathbf{0},I)$. Thus, the forward diffusion process corresponds to the Langevin dynamics of the standard Gaussian $\mathcal{N}(\mathbf{0},I)$.
+Note that $-\mathbf{x}$ is just the score function of the standard Gaussian distribution $\mathcal{N}(\mathbf{0},I)$. Thus, the forward diffusion process corresponds to the Langevin dynamics of the standard Gaussian $\mathcal{N}(\mathbf{0},I)$.
 
 The forward diffusion process has $\mathcal{N}(\mathbf{0},I)$ as its stationary distribution. This means, for any initial distribution $p_0(\mathbf{x})$ of positions $\{\mathbf{x}_0^{(1)},...,\mathbf{x}_0^{(N)}\}$, their density $p_t(\mathbf{x})$ converges to $\mathcal{N}(\mathbf{0},I)$ as $t\to\infty$. When these positions represent vectors of clean images, the process describes a gradual noising operation that transforms clean images into Gaussian noise.
 
@@ -110,10 +110,15 @@ in which $t' \in [0,T]$ is the backward time, $\mathbf{s}(\mathbf{x}, t) = \nabl
 The forward and backward processes form a dual pair, advancing the time $t'$ means receding time $t$ by the same amount. The following figure illustrates consecutive steps of $\ref{Forward Process}$ and $\ref{Backward Process}$.
 
 ![foo](forward-backward-langevin-full.png)
+The green arrows in the above picture represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$.
 
-Note that each horizontal row in this picture represents consecutive steps of Langevin dynamics, which, while altering the sample, keeps the probability density unchanged. This indicates that the probability of samples evolving according to the forward diffusion process has a dual relationship with the backward diffusion process.
+Each horizontal row in this picture corresponds to consecutive steps of Langevin dynamics, which alters the samples while maintaining the probability density. This illustrates the dual relationship between the probability of samples evolving through the forward diffusion process and the backward diffusion process.
 
-To formalize this, we define the densities of $\mathbf{x}_t$ (forward) as $p_t(\mathbf{x})$, the densities of $\mathbf{x}_{t'}$ (backward) as $q_{t'}(\mathbf{x})$. If we initialize
+:::tip
+It's important to note that the backward diffusion process does not generate identical samples to the forward process; rather, it produces samples according to the same probability distribution, due to the identity property of Langevin dynamics.
+:::
+
+To formalize the duality, we define the densities of $\mathbf{x}_t$ (forward) as $p_t(\mathbf{x})$, the densities of $\mathbf{x}_{t'}$ (backward) as $q_{t'}(\mathbf{x})$. If we initialize
 
 $$
 q_0(\mathbf{x}) = p_T(\mathbf{x}),  
