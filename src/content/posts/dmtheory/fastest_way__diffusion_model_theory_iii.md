@@ -1,6 +1,6 @@
 ---
 title: The Fastest Way to Diffusion Model Theory - III
-published: 2025-06-22
+published: 2025-06-23
 tags: [Diffusion Model, Theory]
 category: Diffusion Model Theory
 draft: false
