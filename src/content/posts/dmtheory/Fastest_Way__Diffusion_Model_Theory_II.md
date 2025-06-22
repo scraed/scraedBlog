@@ -31,7 +31,7 @@ In this section, we present the fundamental theory of Denoising Diffusion Probab
 **Prerequisites**: Calculus, [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/).
 
 
-# The Denoising Diffusion Probabilistic Model (DDPMs)  
+# The Denoising Diffusion Probabilistic Model (DDPM)  
 
 DDPMs [^Ho2020DenoisingDP] are models that generate high-quality images from noise via a sequence of denoising steps. Denoting images as random variable $\mathbf{x}$ of the probabilistic density distribution $p(\mathbf{x})$, the DDPM aims to learn a model distribution that mimics the image distribution $p(\mathbf{x})$ and draw samples from it. The training and sampling of the DDPM utilize two diffusion process: the forward and the backward diffusion process. 
 
