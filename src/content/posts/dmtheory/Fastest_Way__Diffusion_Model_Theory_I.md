@@ -37,7 +37,11 @@ $$
 d\mathbf{W}_t \cdot d\mathbf{W}_t^T = Cov(d\mathbf{W}_t, d\mathbf{W}_t) = I \, dt,  
 $$
 
-where $I$ is the identity matrix. When no quadratic terms of $d\mathbf{W}_t$ are involved, $d\mathbf{W}_t$ can often be roughly treated as $\sqrt{dt} \, \boldsymbol{\epsilon}$, where $\boldsymbol{\epsilon} \sim \mathcal{N}(0,1)$ is a standard Gaussian random variable.
+where $I$ is the identity matrix. 
+
+:::Note
+When no quadratic terms of $d\mathbf{W}_t$ are involved, $d\mathbf{W}_t$ can often be roughly treated as $\sqrt{dt} \, \boldsymbol{\epsilon}$, where $\boldsymbol{\epsilon} \sim \mathcal{N}(0,1)$ is a standard Gaussian random variable.
+:::
 
 The Brownian noise $d\mathbf{W}_t$ scales as $\sqrt{dt}$, which fundamentally alters the rules of calculus for SDEs. A change of variable in ordinary calculus has $d s = \frac{d s}{d t} d t$, but for Brownian noise it is $d \mathbf{W}_s = \sqrt{\frac{d s}{d t}} d \mathbf{W}_t$. Moreover, the differentiation of a function is $d f(t, \mathbf{x}_t) = \partial_t f dt + \nabla_\mathbf{x} f \cdot d\mathbf{x}_t$ in ordinary calculus, but for SDE, it follows the Itô's lemma:
 
