@@ -5,9 +5,19 @@ tags: [Diffusion Model, Theory]
 category: Diffusion Model Theory
 draft: false
 ---
+
 When I first learned about diffusion models, I was introduced to them as a type of variational autoencoder (VAE) applied to a series of quantities $\mathbf{x}_0, \dots, \mathbf{x}_T$. Deriving the forward and reverse processes required lengthy derivations spanning multiple pages, dense with priors, posteriors, Bayesian theorems, and mathematical intricacies. Later, I encountered the stochastic differential equation (SDE) perspective, which frames diffusion models through Fokker-Planck and Kolmogorov backward equations—concepts no simpler to grasp than the VAE approach.  
 
 Instead, this blog series aims to deliver a concise, self-contained, and rigorous introduction to diffusion models. While some concepts may be challenging, I believe this approach offers the fastest and most straightforward pathway to understanding diffusion model theory. We will focus exclusively on fundamental SDE principles and calculus to intuitively derive the core theory, uncovering its intrinsic structure without relying on advanced machinery.
+
+- Contents
+    - [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/)
+    - [The Denoising Diffusion Probabilistic Model](../fastest_way__diffusion_model_theory_ii/)
+    - [Training DDPM with the Denoising Objective](../fastest_way__diffusion_model_theory_iii/)
+    - [ODE and Flow-Based Diffusion Model](../fastest_way__diffusion_model_theory_iv/)
+
+
+# SDE and Langevin Dynamics
 
 In this section, we cover the basics of Stochastic Differential Equations (SDEs), focusing on two fundamental concepts: 
 - **Brownian noise ($d\mathbf{W}$)**: The core random process driving SDE dynamics  

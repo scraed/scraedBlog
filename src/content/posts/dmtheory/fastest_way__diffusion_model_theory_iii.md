@@ -31,7 +31,7 @@ In this section, we will show how to train a neural network that models the scor
 
 **Prerequisites**: Calculus.
 
-# Implementation of the Denoising Diffusion Probabilistic Model (DDPM)
+# Training DDPM with the Denoising Objective
 
 
 ## Numerical Implementation of the Forward Process

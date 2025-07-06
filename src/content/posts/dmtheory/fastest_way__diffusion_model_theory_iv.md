@@ -41,6 +41,8 @@ $$
 which trains $\boldsymbol{\epsilon}_\theta$ to predict $\bar{\boldsymbol{\epsilon}}_i$ (approximating $-\sqrt{1-\bar{\alpha}_i}\mathbf{s}(\mathbf{x}, t_i)$).
 :::
 
+# ODE and Flow-Based Diffusion Model
+
 ## The ODE Based Backward Diffusion Process
 
 The backward diffusion process $\ref{Backward Process}$ is not the only reverse process for the forward process $\ref{Forward Process}$. We can derive a deterministic ordinary differential equation (ODE) as an alternative, removing the stochastic term $d\mathbf{W}$ in the backward process.
