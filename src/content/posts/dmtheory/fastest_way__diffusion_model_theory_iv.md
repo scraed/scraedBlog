@@ -59,7 +59,7 @@ $$
 Following the same logic used to derive the backward diffusion process in [Section II](../fastest_way__diffusion_model_theory_ii/), we could read from this splitting the backward ODE (known as the probability flow ODE [^Song2020ScoreBasedGM]):  
 
 $$
-d\mathbf{x}_{t'} = \frac{1}{2} \left( \mathbf{x}_{t'} + \mathbf{s}(\mathbf{x}, T-t') \right) dt',  \label{Probability flow ODE}
+d\mathbf{x}_{t'} =  \left( \frac{1}{2} \mathbf{x}_{t'} + \frac{1}{2} \mathbf{s}(\mathbf{x}, T-t') \right) dt',  \label{Probability flow ODE}
 $$
 
 where $t' \in [0,T]$ is backward time, and $\mathbf{s}(\mathbf{x}, t) = \nabla_{\mathbf{x}_{t}} \log p_t(\mathbf{x})$ is the score function of the density of $\mathbf{x}_{t}$ in the forward process. This ODE maintains the same forward-backward duality as the SDE reverse process $\ref{Backward Process}$.  
