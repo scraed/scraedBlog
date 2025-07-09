@@ -10,7 +10,7 @@ When I first learned about diffusion models, I was introduced to them as a type 
 
 This blog series aims to provide a concise, self-contained, and rigorous introduction to diffusion models, specifically from the perspective of Langevin dynamics. In my opinion, the key to understanding diffusion models lies in understanding the following relation: 
 ![foo](forward-backward-langevin.png)  
-which illustrates the intrinsic connection among the forward, backward diffusion process and the Langevin dynamics.
+which illustrates the connection among the forward, backward diffusion process and the Langevin dynamics.
 
 While some concepts may be challenging, I believe this approach offers the fastest and most straightforward pathway to understanding diffusion model theory. We will focus exclusively on fundamental principles of stochastic differential equations (SDEs) and calculus to intuitively derive the core theory, revealing its intrinsic structure without the need for advanced machinery.
 
