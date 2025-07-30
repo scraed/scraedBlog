@@ -110,9 +110,7 @@ in which $t' \in [0,T]$ is the backward time, $\mathbf{s}(\mathbf{x}, t) = \nabl
 The forward and backward processes form a dual pair, advancing the time $t'$ means receding time $t$ by the same amount. The following figure illustrates consecutive steps of $\ref{Forward Process}$ and $\ref{Backward Process}$.
 
 ![foo](forward-backward-langevin-full.png)
-The green arrows in the above picture represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$.
-
-Each horizontal row in this picture corresponds to consecutive steps of Langevin dynamics, which alters the samples while maintaining the probability density. This illustrates the dual relationship between the probability of samples evolving through the forward diffusion process and the backward diffusion process.
+**Each horizontal row in this picture corresponds to consecutive steps of Langevin dynamics, which alters the samples while maintaining the same probability density**. The green arrows represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$. This illustrates the duality between the forward and backward diffusion processes: while $\mathbf{x}_t$ (forward) and $\mathbf{x}_{(T-t)'}$ (backward) are distinct samples, they obey the same probability distribution.
 
 :::tip
 It's important to note that the backward diffusion process does not generate identical samples to the forward process; rather, it produces samples according to the same probability distribution, due to the identity property of Langevin dynamics.
