@@ -15,19 +15,19 @@ which illustrates the connection among the forward, backward diffusion process a
 While some concepts may be challenging, I believe this approach offers the fastest and most straightforward pathway to understanding diffusion model theory. We will focus exclusively on fundamental principles of stochastic differential equations (SDEs) and calculus to intuitively derive the core theory, revealing its intrinsic structure without the need for advanced machinery.
 
 - Contents
-    - [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/)
-    - [The Denoising Diffusion Probabilistic Model](../fastest_way__diffusion_model_theory_ii/)
+    - [Prelude: Langevin Dynamics as Identity](../fastest_way__diffusion_model_theory_i/)
+    - [Spliting the Identity: Forward and Backward Processes in DDPM](../fastest_way__diffusion_model_theory_ii/)
     - [Training DDPM with the Denoising Objective](../fastest_way__diffusion_model_theory_iii/)
     - [ODE and Flow-Based Diffusion Model](../fastest_way__diffusion_model_theory_iv/)
 
 
-# SDE and Langevin Dynamics
+# Prelude: Langevin Dynamics as Identity
 
 In this section, we cover the basics of Stochastic Differential Equations (SDEs), focusing on two fundamental concepts: 
 - **Brownian noise ($d\mathbf{W}$)**: The core random process driving SDE dynamics  
 - **Langevin Dynamics**: The basic SDE to generate samples from a probability distribution.
 
-At the end of this section, you will understand one edge of the triangle relation
+By the end of this section, you will grasp one edge of the triangle relation: the "identity" property of Langevin dynamics on its stationary distribution $p(\mathbf{x})$.
 ![foo](langevin_id.png)
 
 **Prerequisites**: Calculus, particularly series expansions and vector calculus (gradients, Laplacians).
@@ -74,12 +74,17 @@ Because Brownian noise $d\mathbf{W}_t$ scales like $\sqrt{dt}$, it bends ordinar
 
 For instance, rescaling time from $t$ to $s$ in regular calculus gives $ds = \frac{ds}{dt} dt$, but for Brownian noise $d\mathbf{W}_t$, since its scales with $\sqrt{dt}$, the transformation becomes $d \mathbf{W}_s = \sqrt{\frac{ds}{dt}} d \mathbf{W}_t$ to preserve that scaling.
 
-Similarly, differentiating a function $f(t, \mathbf{x}_t)$ in ordinary calculus yields $df(t, \mathbf{x}_t) = \partial_t f \, dt + \nabla_\mathbf{x} f \cdot d\mathbf{x}_t$. But for SDEs, it follows the **Itô's lemma**:
+Similarly, differentiating a function $f(t, \mathbf{x}_t)$ in ordinary calculus yields $df(t, \mathbf{x}_t) = \partial_t f \, dt + \nabla_\mathbf{x} f \cdot d\mathbf{x}_t$. But for $\ref{SDE}$, it follows the **Itô's lemma**:
 
 $$
-df(t, \mathbf{x}_t) = \partial_t f \, dt + \nabla_\mathbf{x} f \cdot d \mathbf{x}_t + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, dt}_{\text{stochastic effect}}. \label{Itô's lemma}
+\begin{aligned}
+df(t, \mathbf{x}_t) &= \partial_t f \, dt + \nabla_\mathbf{x} f \cdot d \mathbf{x}_t + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, dt}_{\text{stochastic effect}}\\
+&= \partial_t f \, dt + \nabla_\mathbf{x} f \cdot \left(\boldsymbol{\mu}(\mathbf{x}_t, t) \, dt + \sigma(\mathbf{x}_t, t) \, d\mathbf{W}_t \right) + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, dt}_{\text{stochastic effect}}\\
+\end{aligned}
+\label{Itô's lemma}
 $$
-We won't derive it step by step here. Intuitively, it comes from a Taylor expansion: plug in the SDE $\eqref{SDE}$, and since $(d\mathbf{W}_t)^2 \approx dt$, the second-order Laplacian term $\nabla^2_\mathbf{x} f$ persists as a first-order $dt$ contribution. This Laplacian highlights the key difference from deterministic calculus. We'll later use this lemma to analyze how the probability distribution of $\mathbf{x}_t$ evolves.
+
+We won't derive it step by step here. Intuitively, it comes from a Taylor expansion: plug in the $\ref{SDE}$, and since $(d\mathbf{W}_t)^2 \approx dt$, the second-order Laplacian term $\nabla^2_\mathbf{x} f$ persists as a first-order $dt$ contribution. This Laplacian highlights the key difference from deterministic calculus. We'll later use this lemma to analyze how the probability distribution of $\mathbf{x}_t$ evolves.
 
 
 ## Langevin Dynamics
@@ -108,7 +113,8 @@ Using $\ref{Itô's lemma}$ (substitute $dt$ with $\Delta t$) and noting that the
 
 $$
 \begin{aligned}
-\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] &\approx \Delta t \int p(\mathbf{x}) \left(\nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f\right) d\mathbf{x} \quad \text{(to first order)}\\
+\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] &\approx \int p(\mathbf{x}) \left[ \underbrace{\partial_t f \, dt}_{\text{ = 0}} + \nabla_\mathbf{x} f \cdot \left(\underbrace{\boldsymbol{\mu}(\mathbf{x}_t, t)}_{\boldsymbol{\mu} = \mathbf{s}} \, dt + \underbrace{\sigma \, d\mathbf{W}_t}_{\text{zero average}} \right) + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, dt}_{\sigma = \sqrt{2}}\right]d\mathbf{x}\\
+&= \Delta t \int p(\mathbf{x}) \left(\nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f\right) d\mathbf{x} \quad \text{(to first order)}\\
 &= \Delta t \int f(\mathbf{x}) \left(-\nabla_\mathbf{x}\cdot(p\mathbf{s}) + \nabla^2_\mathbf{x} p\right) d\mathbf{x} \quad \text{(integration by parts)} \\
 &= \Delta t \int f(\mathbf{x}) \nabla_\mathbf{x}\cdot\left(-p\mathbf{s} + \nabla_\mathbf{x} p\right) d\mathbf{x}\\
 &=0,

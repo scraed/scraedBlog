@@ -20,20 +20,21 @@ d\mathbf{x}_t = \frac{1}{2}\mathbf{s}(\mathbf{x}_t) dt + d\mathbf{W}_t,\label{La
 $$
 
 where $d\mathbf{W}_t$ could be roughly treated as $\sqrt{dt} \, \boldsymbol{\epsilon}$, where $\boldsymbol{\epsilon} \sim \mathcal{N}(0,1)$ is a standard Gaussian random variable. $\mathbf{s}(\mathbf{x}) = \nabla_{\mathbf{x}} \log p(\mathbf{x})$ is the score function. The Langevin dynamics for $p(\mathbf{x})$ acts as an **identity** operation on the distribution, transforming samples from $p(\mathbf{x})$ into new samples from the same distribution.
-
-![foo](langevin_id.png)
 :::
 
-In this section, we present the fundamental theory of Denoising Diffusion Probabilistic Models (DDPMs): 
+In this section, we present the key processes of Denoising Diffusion Probabilistic Models (DDPMs): 
 - **Forward Diffusion Process**: How DDPMs gradually corrupt an image into pure Gaussian noise  
 - **Backward Diffusion Process**: How DDPMs generate images by gradually denoising pure Gaussian noise
 
+We will show how to derive the backward diffusion process from the forward process with the help of the triangle relation:
+![foo](forward-backward-langevin.png)  
+
+
 **Prerequisites**: Calculus, [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/).
 
-
-# The Denoising Diffusion Probabilistic Model (DDPM)  
-
-DDPMs [^Ho2020DenoisingDP] are models that generate high-quality images from noise via a sequence of denoising steps. Denoting images as random variable $\mathbf{x}$ of the probabilistic density distribution $p(\mathbf{x})$, the DDPM aims to learn a model distribution that mimics the image distribution $p(\mathbf{x})$ and draw samples from it. The training and sampling of the DDPM utilize two diffusion process: the forward and the backward diffusion process. 
+# Spliting the Identity: Forward and Backward Processes in DDPM
+s
+The Denoising Diffusion Probabilistic Models (DDPMs) [^Ho2020DenoisingDP] are models that generate high-quality images from noise via a sequence of denoising steps. Denoting images as random variable $\mathbf{x}$ of the probabilistic density distribution $p(\mathbf{x})$, the DDPM aims to learn a model distribution that mimics the image distribution $p(\mathbf{x})$ and draw samples from it. The training and sampling of the DDPM utilize two diffusion process: the forward and the backward diffusion process. 
 
 
 ## The Forward Diffusion Process
