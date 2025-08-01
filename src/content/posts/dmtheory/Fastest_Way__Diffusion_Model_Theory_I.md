@@ -8,7 +8,7 @@ draft: false
 
 When I first learned about diffusion models, I was introduced to them as a type of variational autoencoder (VAE) applied to a series of quantities $\mathbf{x}_0, \dots, \mathbf{x}_T$. Deriving the forward and reverse processes required lengthy derivations spanning multiple pages, dense with priors, posteriors, Bayesian theorems, and mathematical intricacies. Later, I encountered the stochastic differential equation (SDE) perspective, which frames diffusion models through Fokker-Planck and Kolmogorov backward equations—concepts no simpler to grasp than the VAE approach.  
 
-This blog series aims to provide a concise, self-contained, and rigorous introduction to diffusion models, specifically from the perspective of Langevin dynamics. In my opinion, the key to understanding diffusion models lies in understanding the following relation: 
+This blog series aims to provide a concise, self-contained, and rigorous introduction to diffusion models, specifically from the perspective of Langevin dynamics. The key to understanding diffusion models lies in understanding the following triangle relation: 
 ![foo](forward-backward-langevin.png)  
 which illustrates the connection among the forward, backward diffusion process and the Langevin dynamics.
 
@@ -26,6 +26,9 @@ While some concepts may be challenging, I believe this approach offers the faste
 In this section, we cover the basics of Stochastic Differential Equations (SDEs), focusing on two fundamental concepts: 
 - **Brownian noise ($d\mathbf{W}$)**: The core random process driving SDE dynamics  
 - **Langevin Dynamics**: The basic SDE to generate samples from a probability distribution.
+
+At the end of this section, you will understand one edge of the triangle relation
+![foo](langevin_id.png)
 
 **Prerequisites**: Calculus, particularly series expansions and vector calculus (gradients, Laplacians).
 
