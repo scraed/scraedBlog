@@ -88,10 +88,10 @@ $$
 One step of this backward diffusion process with $dt' = \Delta t$ acts as a reversal of the forward process.
 ![foo](backward2.png)
 
-The backward diffusion process itself is also a standalong SDE that advances the backward diffusion time $t'$
+The backward diffusion process itself is also a standalone SDE that advances the backward diffusion time $t'$. If $\mathbf{x}_{t'} \sim q_{t'}(\mathbf{x})$, then one step of the backward diffusion process with $dt' = \Delta t'$ brings it to $\mathbf{x}_{t' + \Delta t'} \sim q_{t' + \Delta t'}(\mathbf{x})$.
 ![foo](backward3.png)
 
-These two interpretations help us determine the relationship between the forward diffusion time $t$ and the backward diffusion time $t'$. Since $dt'$ is interpreted as a "decrease" in the forward diffusion time $t$, we have 
+These two interpretations help us determine the relationship between the forward diffusion time $t$ and the backward diffusion time $t'$. Since $dt'$ is interpreted as a "decrease" in the forward diffusion time $t$, as well as a "increase" of the backward diffusion time $t'$, we have 
 
 $$
 dt = -dt'
@@ -107,10 +107,14 @@ in which $t' \in [0,T]$ is the backward time, $\mathbf{s}(\mathbf{x}, t) = \nabl
 
 ### Forward-Backward Duality
 
-The forward and backward processes form a dual pair, advancing the time $t'$ means receding time $t$ by the same amount. The following figure illustrates consecutive steps of $\ref{Forward Process}$ and $\ref{Backward Process}$.
+We have previously shown that a backward step is the reverse of a forward step: advancing time $t'$ in the backward process corresponds to receding time $t$ by the same amount in the forward process. What, then, occurs when we chain together a series of forward and backward steps? Consider the following process: start with $\mathbf{x}_0$, evolve it via the $\ref{Forward Process}$ to $\mathbf{x}_T$, then take $\mathbf{x}_T$ as the initial position $\mathbf{x}_{0'}$ of the $\ref{Backward Process}$ and evolve it to $\mathbf{x}_{T'}$. This sequence is illustrated in the figure below.
+![foo](FastestDiffusionTheory_08.jpg)
+The green arrows represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$. 
 
-![foo](forward-backward-langevin-full.png)
-**Each horizontal row in this picture corresponds to consecutive steps of Langevin dynamics, which alters the samples while maintaining the same probability density**. The green arrows represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$. This illustrates the duality between the forward and backward diffusion processes: while $\mathbf{x}_t$ (forward) and $\mathbf{x}_{(T-t)'}$ (backward) are distinct samples, they obey the same probability distribution.
+We examine the relationship between $\mathbf{x}_{t}$ in the forward diffusion process and $\mathbf{x}_{t'=T-t}$ in the backward diffusion process. The composition of a forward and a backward step constitutes a Langevin dynamics step. This allows us to connect $\mathbf{x}$ in the forward process with those in the backward process through Langevin dynamics steps, as illustrated below:
+![foo](FastestDiffusionTheory_09.jpg)
+
+**Each horizontal row in this picture corresponds to consecutive steps of Langevin dynamics, which alters the samples while maintaining the same probability density**. This illustrates the duality between the forward and backward diffusion processes: while $\mathbf{x}_t$ (forward) and $\mathbf{x}_{(T-t)'}$ (backward) are distinct samples, they obey the same probability distribution.
 
 :::tip
 It's important to note that the backward diffusion process does not generate identical samples to the forward process; rather, it produces samples according to the same probability distribution, due to the identity property of Langevin dynamics.
@@ -144,6 +148,21 @@ Stay tuned for the next installment!
 ## Discussion
 If you have questions, suggestions, or ideas to share, please visit the [discussion post](https://github.com/scraed/scraedBlog/discussions/4).
 
+
+
+## Cite this blog
+This blog is a reformulation of the appendix of the following paper.
+```bibtex
+@misc{zheng2025lanpainttrainingfreediffusioninpainting,
+      title={LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling}, 
+      author={Candi Zheng and Yuan Lan and Yang Wang},
+      year={2025},
+      eprint={2502.03491},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2502.03491}, 
+}
+```
 
 [^Ho2020DenoisingDP]: Ho, J., Jain, A., & Abbeel, P. (2020). Denoising diffusion probabilistic models. Advances in neural information processing systems, 33, 6840-6851.
 [^Uhlenbeck1930OnTT]: Uhlenbeck, G. E., & Ornstein, L. S. (1930). On the theory of the Brownian motion. *Physical Review*, *36*(5), 823–841.  
