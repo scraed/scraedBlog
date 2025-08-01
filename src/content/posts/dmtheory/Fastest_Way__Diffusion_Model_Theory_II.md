@@ -33,7 +33,6 @@ We will show how to derive the backward diffusion process from the forward proce
 **Prerequisites**: Calculus, [SDE and Langevin Dynamics](../fastest_way__diffusion_model_theory_i/).
 
 # Spliting the Identity: Forward and Backward Processes in DDPM
-s
 The Denoising Diffusion Probabilistic Models (DDPMs) [^Ho2020DenoisingDP] are models that generate high-quality images from noise via a sequence of denoising steps. Denoting images as random variable $\mathbf{x}$ of the probabilistic density distribution $p(\mathbf{x})$, the DDPM aims to learn a model distribution that mimics the image distribution $p(\mathbf{x})$ and draw samples from it. The training and sampling of the DDPM utilize two diffusion process: the forward and the backward diffusion process. 
 
 
@@ -58,10 +57,10 @@ One forward diffusion step with a step size of $\Delta t$ is displayed in the fo
 
 The backward diffusion process is the conjugate of the forward process. While the forward process evolves $p_t(\mathbf{x})$ toward $\mathcal{N}(\mathbf{0},I)$, the backward process reverses this evolution, restoring $\mathcal{N}(\mathbf{0},I)$ to $p_t$.
 
-To derive it, we employ Langevin dynamics as a stepping stone, which provides the fastest way to obtain the backward diffusion process: 
+To derive it, we employ Langevin dynamics as a stepping stone, which provides a starightforward way to obtain the backward diffusion process: 
 
 :::note
-$\ref{Langevin Dynamics}$ acts as an "identity" operation on a distribution. Thus, the composition of forward and backward processes, at time $t$, must yield the Langevin dynamics for $p_t(\mathbf{x})$. As shown in the following picture
+$\ref{Langevin Dynamics}$ functions as an "identity" operation with respect to a distribution. Given that the backward process is the reverse of the forward process, the composition of the forward and backward process at time $t$ must therefore reproduce the Langevin dynamics for $p_t(\mathbf{x})$, as shown in the following picture
 ![foo](forward-backward-langevin.png)
 :::
 

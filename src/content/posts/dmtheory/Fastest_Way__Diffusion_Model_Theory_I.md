@@ -109,11 +109,20 @@ To check stationarity, we show that after a small time step from 0 to $\Delta t$
 
 Pick any smooth test function $f$. Start with initial points $\mathbf{x}_0$ drawn from $p(\mathbf{x})$. We track the change in the average value of $f$ at $\mathbf{x}_{\Delta t}$, i.e., $\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}[f(\mathbf{x}_{\Delta t})]$.
 
-Using $\ref{Itô's lemma}$ (substitute $dt$ with $\Delta t$) and noting that the noise term averages to zero ($\mathbb{E}_{\mathbf{x}}[d\mathbf{W}] = \mathbf{0}$), we get:
+Using $\ref{Itô's lemma}$ (substitute $dt$ with $\Delta t$) we have, to the first order accuracy,
 
 $$
 \begin{aligned}
-\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] &\approx \int p(\mathbf{x}) \left[ \underbrace{\partial_t f \, dt}_{\text{ = 0}} + \nabla_\mathbf{x} f \cdot \left(\underbrace{\boldsymbol{\mu}(\mathbf{x}_t, t)}_{\boldsymbol{\mu} = \mathbf{s}} \, dt + \underbrace{\sigma \, d\mathbf{W}_t}_{\text{zero average}} \right) + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, dt}_{\sigma = \sqrt{2}}\right]d\mathbf{x}\\
+f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0) &\approx  \underbrace{\partial_t f \, \Delta t}_{\text{ = 0}} + \nabla_\mathbf{x} f \cdot \left(\underbrace{\boldsymbol{\mu}}_{\boldsymbol{\mu} = \mathbf{s}(\mathbf{x})} \, \Delta t + \underbrace{\sigma \, d\mathbf{W}_t}_{\text{zero average}} \right) + \underbrace{\frac{\sigma^2}{2} \nabla^2_\mathbf{x} f \, \Delta t}_{\sigma = \sqrt{2}} \\ 
+&= \Delta t \left( \nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f \right)+ \sqrt{2} \nabla_\mathbf{x} f \cdot d\mathbf{W}_t
+\end{aligned}
+$$
+
+and noting that the noise term averages to zero ($\mathbb{E}_{\mathbf{x}}[d\mathbf{W}] = \mathbf{0}$), we get:
+
+$$
+\begin{aligned}
+\mathbb{E}_{\mathbf{x}_0 \sim p(\mathbf{x})}\left[f(\mathbf{x}_{\Delta t}) - f(\mathbf{x}_0)\right] 
 &= \Delta t \int p(\mathbf{x}) \left(\nabla_\mathbf{x} f \cdot \mathbf{s} + \nabla^2_\mathbf{x} f\right) d\mathbf{x} \quad \text{(to first order)}\\
 &= \Delta t \int f(\mathbf{x}) \left(-\nabla_\mathbf{x}\cdot(p\mathbf{s}) + \nabla^2_\mathbf{x} p\right) d\mathbf{x} \quad \text{(integration by parts)} \\
 &= \Delta t \int f(\mathbf{x}) \nabla_\mathbf{x}\cdot\left(-p\mathbf{s} + \nabla_\mathbf{x} p\right) d\mathbf{x}\\
