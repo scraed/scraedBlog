@@ -155,11 +155,21 @@ $$
 \boldsymbol{\epsilon}_\theta( \mathbf{x}, t_i  ) \approx  -\sqrt{1-\bar{\alpha}_i}\mathbf{s}(\mathbf{x}, t_i). \label{eps-score relation}
 $$
 
+With the help of this relation between $\boldsymbol{\epsilon}_\theta$ and score function, we could rewrite the backward process as
+
+$$
+\mathbf{x}_{k+1} = \frac{\mathbf{x}_{k} - \frac{ \boldsymbol{\epsilon}_\theta (\mathbf{x}_{k}, t_{n-k} ) }{\sqrt{1-\bar{\alpha}_{n-k}}} \beta_{n-k}}{\sqrt{1-\beta_{n-k}}} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k}. \label{discrete sampling process}
+$$
+
 
 ## Summary:
 
-We have covered all aspects of the DDPM theory. You can now find a suitable dataset, perform the $\ref{discrete forward diffusion}$, train a denoising neural network using the $\ref{denoising objective}$, and subsequently generate new samples with the $\ref{eps-score relation}$ and the $\ref{discrete backward process}$.
-
+- We've covered all aspects of DDPM theory. To implement it:
+  - Select a suitable dataset as the empirical distribution $p_0(\mathbf{x})$ and sample data points as $\mathbf{x}_0$.
+  - Apply the $\ref{discrete forward diffusion}$ to add noise to the data.
+  - Record the noise $\bar{\boldsymbol{\epsilon}}_i$ used during this process.
+  - Train a denoising neural network $\boldsymbol{\epsilon}_\theta$ using the noise recorded and the $\ref{denoising objective}$.
+  - Generate new samples using the $\ref{discrete sampling process}$.
 
 ## What is Next
 In the [next section](../fastest_way__diffusion_model_theory_iv/), we will discuss an alternative version of the backward diffusion process: ordinary differential equation (ODE) based backward sampling. This approach serves as the foundation for several modern architectures, such as rectified flow diffusion models.

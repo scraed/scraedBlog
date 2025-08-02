@@ -131,7 +131,7 @@ $$
 \mathbf{z}_{\sigma} = \mathbf{z}_0 + \sigma \bar{\boldsymbol{\epsilon}}_\sigma, \label{VE forward}
 $$
 
-where $\mathbf{z}_0$ is the clean image corrupted by noise of magnitude $\sigma$.
+where $\mathbf{z}_0$ is the clean image corrupted by the standard Gaussian noise $\bar{\boldsymbol{\epsilon}}_\sigma$.
 
 #### Forward and Backward Processes
 
