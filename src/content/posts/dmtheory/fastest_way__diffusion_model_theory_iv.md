@@ -102,6 +102,24 @@ $$
 
 where $t' \in [0,T]$ is reversed time, and the score function $\mathbf{s}(\mathbf{x}, t) = \nabla_{\mathbf{x}} \log p_t(\mathbf{x})$ is learned via the denoising objective.
 
+
+#### Discrete Forward and Backward Processes
+
+We also list the discrete version of Forward and Backward Processes, which is used in trainining and inference practice. 
+- **Discrete Forward SDE**:
+Suppose we discretize the time $t\in[0, T]$ as $\{t_0 = 0, \cdots, t_i, \cdots, t_n = T \}$ and denote $\beta_i = t_{i+1} - t_i$, $\mathbf{x}_{i} = \mathbf{x}_{t_i}$, then
+$$
+\mathbf{x}_{i} = \sqrt{\bar{\alpha}_t}\mathbf{x}_0 + \sqrt{1-\bar{\alpha}_t} \bar{\boldsymbol{\epsilon}}_i, i = 1, \cdots, n
+$$
+
+- **Discrete Backward ODE**:
+Correspondingly, we discretize the backward diffusion time as $t'_k = T - t_{n-k}$ and denote $\mathbf{x}_{k} = \mathbf{x}_{t'_k}$. This discretizes the backward diffusion process [^Song2020ScoreBasedGM] into:
+
+$$
+\mathbf{x}_{k} = (2 - \sqrt{1 - \beta_{n-k}}) \mathbf{x}_{k-1}  + \frac{1}{2} \mathbf{s}(\mathbf{x}_{k-1}, t_{n-k+1}) \beta_{n-k}, \quad k = 1, \cdots, n
+$$
+
+To see how this matches the continuous version, note that $\sqrt{1 - \beta_{n-k}} \approx 1 - \frac{1}{2}\beta_{n-k}$.
 #### Score Matching Objective
 
 While we previously trained the denoising network $\boldsymbol{\epsilon}_\theta$ using the $\ref{denoising objective}$, we can alternatively model the score function $\mathbf{s}_\theta$ directly. This yields the equivalent **score matching objective**:
@@ -151,6 +169,24 @@ $$
 
 The advantage of the VE notation lies in its simpler backward ODE compared to the VP notation. In practice, directly discretizing the $\ref{VE backward ODE}$ using an Euler solver tends to yield greater accuracy than the $\ref{VP backward ODE}$, which includes an additional $\frac{1}{2} \mathbf{x}$ term that can introduce numerical errors. However, a notable disadvantage of the VE notation is that $\sigma$ can become quite large at time $T$, potentially leading to numerical instability.
 
+
+
+#### Discrete Forward and Backward Processes
+
+We also list the discrete version of Forward and Backward Processes, which is used in trainining and inference practice. 
+- **Discrete Forward SDE**:
+Suppose we discretize the $\sigma \in \left[0, \sqrt{\tfrac{1 - \bar{\alpha}_T}{\bar{\alpha}_T}}\right]$ as $\{\sigma_0 = 0, \cdots, \sigma_i, \cdots, \sigma_n = \sqrt{\tfrac{1 - \bar{\alpha}_T}{\bar{\alpha}_T}} \}$ and $\mathbf{z}_{i} = \mathbf{z}_{\sigma_i}$, then
+$$
+\mathbf{z}_{i} = \mathbf{z}_0 + \sigma_i \bar{\boldsymbol{\epsilon}}_{\sigma_i},  i = 1, \cdots, n
+$$
+where $\bar{\boldsymbol{\epsilon}}_{\sigma_i}$ is a standard Gaussian noise.
+- **Discrete Backward ODE**:
+Correspondingly, define $\sigma'_k = \sigma_{n-k}$ and denote $\mathbf{z}_{k} = \mathbf{z}_{\sigma'_k}$. This discretizes the backward diffusion process into:
+
+$$
+\mathbf{z}_{k} = \mathbf{z}_{k-1} + \boldsymbol{\epsilon}(\mathbf{z}_{k-1}, \sigma'_{k-1}) \left( \sigma'_k - \sigma'_{k-1} \right), \quad k = 1, \cdots, n
+$$
+
 #### Denoising Objective
 
 To directly model $\boldsymbol{\epsilon}_\theta(\mathbf{z}, \sigma)$, we adapt the $\ref{denoising objective}$ to VE coordinates by replacing $\mathbf{x}_t$ with $\mathbf{z}_\sigma$:
@@ -179,7 +215,7 @@ $$
 \mathbf{r}_{s} = (1-s)\mathbf{r}_0 + s\bar{\boldsymbol{\epsilon}}_s, \label{RF forward}
 $$
 
-which linearly interpolates between clean data ($\mathbf{r}_0$) and noise.
+This process linearly interpolates between clean data ($\mathbf{r}_0$) and standard Gaussian noise $\bar{\boldsymbol{\epsilon}}_s$. While many sources refer to $\bar{\boldsymbol{\epsilon}}_s$ as $\mathbf{r}_1$ since both represent Gaussian noise, this notation can be misleading. Such notation suggests that $\mathbf{r}_{s}$ is a deterministic interpolation between $\mathbf{r}_0$ and $\mathbf{r}_1$. But in fact $\mathbf{r}_{s}$ is a combination of clean data $\mathbf{r}_0$ and random Gaussian noise, similar to the formulation in VP and VE notation.
 
 #### Forward and Backward Processes
 
@@ -198,6 +234,26 @@ d\mathbf{r}_{s'} = \mathbf{v}(\mathbf{r}_{s'}, s')ds', \quad s'\in[1,0] \label{R
 $$
 
 The advantage of the rectified flow notation is its simple backward ODE, which eliminates the diverging behavior of $\sigma$ at time $T$ found in the VE notation, ensuring that $s$ remains within a finite range of $[0, 1]$.
+
+
+
+#### Discrete Forward and Backward Processes
+
+We also list the discrete version of Forward and Backward Processes, which is used in trainining and inference practice. 
+- **Discrete Forward SDE**:
+Suppose we discretize the $s \in \left[0, 1\right]$ as $\{s_0 = 0, \cdots, s_i, \cdots, s_n = 1\}$ and $\mathbf{r}_{i} = \mathbf{r}_{s_i}$, then [^LiuFlow]
+$$
+\mathbf{r}_{i} =  (1-s_i)\mathbf{r}_0 + s\bar{\boldsymbol{\epsilon}}_{s_i} ,  i = 1, \cdots, n
+$$
+where $\bar{\boldsymbol{\epsilon}}_{s_i}$ is a standard Gaussian noise.
+- **Discrete Backward ODE**:
+Correspondingly, define $s'_k = s_{n-k}$ and denote $\mathbf{r}_{k} = \mathbf{r}_{s'_k}$. This discretizes the backward diffusion process into:
+
+$$
+\mathbf{r}_{k} = \mathbf{r}_{k-1} + \mathbf{v}(\mathbf{r}_{k-1}, s'_{k-1}) \left( s'_k - s'_{k-1} \right), \quad k = 1, \cdots, n
+$$
+
+
 
 #### Flow Matching Objective
 
@@ -224,5 +280,6 @@ Stay tuned for the next installment!
 ## Discussion
 If you have questions, suggestions, or ideas to share, please visit the [discussion post](https://github.com/scraed/scraedBlog/discussions/4).
 
+[^LiuFlow]: Liu, X., Gong, C., & Liu, Q. (2022). Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow. ArXiv, abs/2209.03003.
 [^Song2020ScoreBasedGM]: Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., & Poole, B. (2020). Score-Based Generative Modeling through Stochastic Differential Equations. *arXiv preprint arXiv:2011.13456*.
 [^Gao2025DiffusionGFM]: Gao, R., Hoogeboom, E., Heek, J., De Bortoli, V., Murphy, K. P., & Salimans, T. (2025). Diffusion Models and Gaussian Flow Matching: Two Sides of the Same Coin. *The Fourth Blogpost Track at ICLR 2025*. https://openreview.net/forum?id=C8Yyg9wy0s

@@ -81,15 +81,15 @@ The **backward diffusion process** is used to sample from the DDPM by removing t
 The vanilla discretization of the $\ref{Backward Process}$ is given by:
 
 $$
-\mathbf{x}_{k+1} = (1 + \frac{1}{2} \beta_{n-k}) \mathbf{x}_{k} + \mathbf{s}(\mathbf{x}_{k}, T-t'_{k}) \beta_{n-k} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k},
+\mathbf{x}_{k} = (1 + \frac{1}{2} \beta_{n-k}) \mathbf{x}_{k-1} + \mathbf{s}(\mathbf{x}_{k-1}, T-t'_{k-1}) \beta_{n-k} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k-1},
 $$
 
-where $k = 0, \ldots, n$ represents the backward time step, and $\mathbf{x}_{k}$ is the image at the $k$th step with time $t_{k}' = \sum_{j=0}^{k-1} \beta_{n-1-j} = T - t_{n-k}$. 
+where $k = 1, \ldots, n$ represents the backward time step, and $\mathbf{x}_{k}$ is the image at the $k$th step with time $t_{k}' = \sum_{j=0}^{k-1} \beta_{n-1-j} = T - t_{n-k}$. 
 
 A more common discretization [^Song2020ScoreBasedGM] is:
 
 $$
-\mathbf{x}_{k+1} = \frac{\mathbf{x}_{k} + \mathbf{s}(\mathbf{x}_{k}, t_{n-k} ) \beta_{n-k}}{\sqrt{1-\beta_{n-k}}} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k}, \label{discrete backward process}
+\mathbf{x}_{k} = \frac{\mathbf{x}_{k-1} + \mathbf{s}(\mathbf{x}_{k-1}, t_{n-k+1} ) \beta_{n-k}}{\sqrt{1-\beta_{n-k}}} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k-1}, \label{discrete backward process}
 $$
 
 This formulation is equivalent to the vanilla discretization when $\beta_i$ is small. The score function $\mathbf{s}$ is typically modeled by a neural network trained using a denoising objective.
@@ -158,7 +158,7 @@ $$
 With the help of this relation between $\boldsymbol{\epsilon}_\theta$ and score function, we could rewrite the backward process as
 
 $$
-\mathbf{x}_{k+1} = \frac{\mathbf{x}_{k} - \frac{ \boldsymbol{\epsilon}_\theta (\mathbf{x}_{k}, t_{n-k} ) }{\sqrt{1-\bar{\alpha}_{n-k}}} \beta_{n-k}}{\sqrt{1-\beta_{n-k}}} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k}. \label{discrete sampling process}
+\mathbf{x}_{k} = \frac{\mathbf{x}_{k-1} - \frac{ \boldsymbol{\epsilon}_\theta (\mathbf{x}_{k-1}, t_{n-k+1} ) }{\sqrt{1-\bar{\alpha}_{n-k+1}}} \beta_{n-k}}{\sqrt{1-\beta_{n-k}}} + \sqrt{\beta_{n-k}}\boldsymbol{\epsilon}_{k-1}. \label{discrete sampling process}
 $$
 
 
