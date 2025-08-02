@@ -107,7 +107,7 @@ in which $t' \in [0,T]$ is the backward time, $\mathbf{s}(\mathbf{x}, t) = \nabl
 
 ### Forward-Backward Duality
 
-We have previously shown that a backward step is the reverse of a forward step: advancing time $t'$ in the backward process corresponds to receding time $t$ by the same amount in the forward process. What, then, occurs when we chain together a series of forward and backward steps? Consider the following process: start with $\mathbf{x}_0$, evolve it via the $\ref{Forward Process}$ to $\mathbf{x}_T$, then take $\mathbf{x}_T$ as the initial position $\mathbf{x}_{0'}$ of the $\ref{Backward Process}$ and evolve it to $\mathbf{x}_{T'}$. This sequence is illustrated in the figure below.
+We have previously shown that a backward step is the reverse of a forward step: advancing time $t'$ in the backward process corresponds to receding time $t$ by the same amount in the forward process. What then occurs when we chain together a series of forward and backward steps? Consider the following process: start with $\mathbf{x}_0$, evolve it via the $\ref{Forward Process}$ to $\mathbf{x}_T$, then take $\mathbf{x}_T$ as the initial position $\mathbf{x}_{0'}$ of the $\ref{Backward Process}$ and evolve it to $\mathbf{x}_{T'}$. This sequence is illustrated in the figure below.
 ![foo](FastestDiffusionTheory_08.jpg)
 The green arrows represent consecutive forward process steps that advance the forward diffusion time $t$, while the blue arrows indicate consecutive backward process steps that advance the backward diffusion time $t'$. 
 
