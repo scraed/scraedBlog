@@ -280,6 +280,21 @@ Stay tuned for the next installment!
 ## Discussion
 If you have questions, suggestions, or ideas to share, please visit the [discussion post](https://github.com/scraed/scraedBlog/discussions/4).
 
+
+## Cite this blog
+This blog is a reformulation of the appendix of the following paper.
+```bibtex
+@misc{zheng2025lanpainttrainingfreediffusioninpainting,
+      title={LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling}, 
+      author={Candi Zheng and Yuan Lan and Yang Wang},
+      year={2025},
+      eprint={2502.03491},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2502.03491}, 
+}
+```
+
 [^LiuFlow]: Liu, X., Gong, C., & Liu, Q. (2022). Flow Straight and Fast: Learning to Generate and Transfer Data with Rectified Flow. ArXiv, abs/2209.03003.
 [^Song2020ScoreBasedGM]: Song, Y., Sohl-Dickstein, J., Kingma, D. P., Kumar, A., Ermon, S., & Poole, B. (2020). Score-Based Generative Modeling through Stochastic Differential Equations. *arXiv preprint arXiv:2011.13456*.
 [^Gao2025DiffusionGFM]: Gao, R., Hoogeboom, E., Heek, J., De Bortoli, V., Murphy, K. P., & Salimans, T. (2025). Diffusion Models and Gaussian Flow Matching: Two Sides of the Same Coin. *The Fourth Blogpost Track at ICLR 2025*. https://openreview.net/forum?id=C8Yyg9wy0s

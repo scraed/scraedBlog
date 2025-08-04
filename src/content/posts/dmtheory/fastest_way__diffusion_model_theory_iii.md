@@ -180,6 +180,19 @@ Stay tuned for the next installment!
 If you have questions, suggestions, or ideas to share, please visit the [discussion post](https://github.com/scraed/scraedBlog/discussions/4).
 
 
+## Cite this blog
+This blog is a reformulation of the appendix of the following paper.
+```bibtex
+@misc{zheng2025lanpainttrainingfreediffusioninpainting,
+      title={LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling}, 
+      author={Candi Zheng and Yuan Lan and Yang Wang},
+      year={2025},
+      eprint={2502.03491},
+      archivePrefix={arXiv},
+      primaryClass={eess.IV},
+      url={https://arxiv.org/abs/2502.03491}, 
+}
+```
 
 [^Song2020ScoreBasedGM]: Yang Song, et al. "Score-Based Generative Modeling through Stochastic Differential Equations." _ArXiv_ (2020).
 [^Ho2020DenoisingDP]: Jonathan Ho, et al. "Denoising Diffusion Probabilistic Models." _ArXiv_ (2020).
