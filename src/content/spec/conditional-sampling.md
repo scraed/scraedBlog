@@ -1,3 +1,8 @@
+---
+category: LanPaint
+tags: [LanPaint]
+---
+
 # LanPaint: Training-Free Partial Conditional Sampling with Langevin Dynamics
 
 ## Training-Free Conditional Sampling for Diffusion and Rectified-Flow Models

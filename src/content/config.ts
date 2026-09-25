@@ -20,8 +20,11 @@ const postsCollection = defineCollection({
 	}),
 });
 
-const specCollection: ReturnType<typeof defineCollection> = defineCollection({
-	schema: z.object({}),
+const specCollection = defineCollection({
+	schema: z.object({
+		tags: z.array(z.string()).optional().default([]),
+		category: z.string().optional().nullable().default(""),
+	}),
 });
 
 export const collections = {

@@ -35,9 +35,13 @@ export async function getTagList(): Promise<Tag[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
+	const allSpecPages = await getCollection("spec", ({ data }) => {
+		return data.tags.length > 0;
+	});
+	const allContent = [...allBlogPosts, ...allSpecPages];
 
 	const countMap: { [key: string]: number } = {};
-	allBlogPosts.map((post: { data: { tags: string[] } }) => {
+	allContent.map((post) => {
 		post.data.tags.map((tag: string) => {
 			if (!countMap[tag]) countMap[tag] = 0;
 			countMap[tag]++;
@@ -62,8 +66,12 @@ export async function getCategoryList(): Promise<Category[]> {
 	const allBlogPosts = await getCollection<"posts">("posts", ({ data }) => {
 		return import.meta.env.PROD ? data.draft !== true : true;
 	});
+	const allSpecPages = await getCollection("spec", ({ data }) => {
+		return Boolean(data.category);
+	});
+	const allContent = [...allBlogPosts, ...allSpecPages];
 	const count: { [key: string]: number } = {};
-	allBlogPosts.map((post: { data: { category: string | null } }) => {
+	allContent.map((post) => {
 		if (!post.data.category) {
 			const ucKey = i18n(I18nKey.uncategorized);
 			count[ucKey] = count[ucKey] ? count[ucKey] + 1 : 1;

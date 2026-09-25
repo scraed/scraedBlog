@@ -28,7 +28,10 @@ const style = Astro.props.style;
         <ButtonLink
             url={c.url}
             badge={String(c.count)}
-            label={`View all posts in the ${c.name.trim()} category`}
+            label={c.name.trim().toLowerCase() === "lanpaint"
+                ? "View all LanPaint pages"
+                : `View all posts in the ${c.name.trim()} category`}
+            }
         >
             {c.name.trim()}
         </ButtonLink>
