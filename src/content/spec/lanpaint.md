@@ -35,6 +35,25 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
 
 ---
 
+## Explore LanPaint
+
+<div class="lanpaint-resource-grid" aria-label="LanPaint pages">
+  <a class="lanpaint-resource" href="/scraedBlog/lanpaint/">
+    <span class="lanpaint-resource-label">Overview</span>
+    <span class="lanpaint-resource-name">LanPaint project hub</span>
+  </a>
+  <a class="lanpaint-resource" href="/scraedBlog/lanpaint/conditional-sampling/">
+    <span class="lanpaint-resource-label">Method</span>
+    <span class="lanpaint-resource-name">Conditional Sampling</span>
+  </a>
+  <a class="lanpaint-resource" href="/scraedBlog/lanpaint/local-editing/">
+    <span class="lanpaint-resource-label">Application</span>
+    <span class="lanpaint-resource-name">Local Editing</span>
+  </a>
+</div>
+
+---
+
 ## What is LanPaint?
 
 LanPaint is a **training-free partial conditional sampling method** for diffusion and rectified-flow generative models.
