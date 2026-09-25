@@ -151,45 +151,136 @@ const { title, description, headings = [] } = Astro.props;
 	.lanpaint-content .lanpaint-resource-grid {
 		display: grid;
 		grid-template-columns: repeat(3, minmax(0, 1fr));
-		gap: 0.7rem;
-		margin: 2rem 0 2.75rem;
+		gap: 0.9rem;
+		margin: 1.75rem 0 3.75rem;
+	}
+
+	.lanpaint-content .lanpaint-resource-grid--explore {
+		gap: 1rem;
+		margin-top: 1.5rem;
 	}
 
 	.lanpaint-content .lanpaint-resource {
+		position: relative;
 		display: flex;
-		min-height: 6.5rem;
+		min-height: 9rem;
 		flex-direction: column;
-		justify-content: space-between;
-		gap: 0.6rem;
-		padding: 1rem 1.1rem;
-		border: 1px solid var(--lanpaint-rule);
-		border-radius: 0.85rem;
-		background: color-mix(in oklab, var(--card-bg) 70%, var(--primary) 3%);
+		align-items: flex-start;
+		gap: 0.7rem;
+		padding: 1.15rem 1.2rem 1.1rem;
+		border: 1px solid color-mix(in oklab, var(--line-divider) 82%, transparent);
+		border-radius: 1rem;
+		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 96%, var(--primary) 4%), color-mix(in oklab, var(--card-bg) 88%, var(--primary) 7%));
 		color: var(--tw-prose-body);
 		text-decoration: none;
-		transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+		box-shadow: 0 1px 0 color-mix(in oklab, var(--tw-prose-headings) 5%, transparent), 0 0.75rem 1.5rem color-mix(in oklab, var(--tw-prose-headings) 4%, transparent);
+		transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+	}
+
+	.lanpaint-content a.lanpaint-resource:not(.no-styling),
+	.lanpaint-content a.lanpaint-resource:not(.no-styling):hover,
+	.lanpaint-content a.lanpaint-resource:not(.no-styling):active {
+		background-color: transparent;
+		border-bottom: 0;
+		text-decoration: none;
 	}
 
 	.lanpaint-content .lanpaint-resource:hover {
-		border-color: color-mix(in oklab, var(--primary) 58%, var(--lanpaint-rule));
-		background: color-mix(in oklab, var(--primary) 8%, var(--card-bg));
-		transform: translateY(-2px);
+		border-color: color-mix(in oklab, var(--primary) 55%, var(--lanpaint-rule));
+		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 92%, var(--primary) 8%), color-mix(in oklab, var(--card-bg) 78%, var(--primary) 14%));
+		box-shadow: 0 0.9rem 2rem color-mix(in oklab, var(--primary) 9%, transparent);
+		transform: translateY(-3px);
+	}
+
+	.lanpaint-content .lanpaint-resource-top {
+		display: flex;
+		align-items: center;
+		gap: 0.65rem;
+	}
+
+	.lanpaint-content .lanpaint-resource-icon {
+		display: grid;
+		width: 1.85rem;
+		height: 1.85rem;
+		place-items: center;
+		border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent);
+		border-radius: 0.62rem;
+		background: color-mix(in oklab, var(--primary) 10%, var(--card-bg));
+		color: var(--primary);
+		font-size: 0.7rem;
+		font-weight: 800;
+		letter-spacing: 0.02em;
+		line-height: 1;
 	}
 
 	.lanpaint-content .lanpaint-resource-label {
 		color: var(--primary);
 		font-size: 0.72rem;
 		font-weight: 700;
-		letter-spacing: 0.1em;
+		letter-spacing: 0.12em;
 		line-height: 1;
 		text-transform: uppercase;
 	}
 
 	.lanpaint-content .lanpaint-resource-name {
+		margin-top: auto;
+		padding-right: 1.35rem;
 		color: var(--tw-prose-headings);
-		font-size: 0.98rem;
-		font-weight: 650;
+		font-size: 1.08rem;
+		font-weight: 750;
 		line-height: 1.35;
+	}
+
+	.lanpaint-content .lanpaint-resource-description {
+		max-width: 28ch;
+		padding-right: 1.35rem;
+		color: color-mix(in oklab, var(--tw-prose-body) 72%, var(--tw-prose-headings));
+		font-size: 0.82rem;
+		line-height: 1.4;
+	}
+
+	.lanpaint-content .lanpaint-resource-arrow {
+		position: absolute;
+		right: 1.2rem;
+		bottom: 1.1rem;
+		color: var(--primary);
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1;
+		transition: transform 180ms ease;
+	}
+
+	.lanpaint-content .lanpaint-resource:hover .lanpaint-resource-arrow {
+		transform: translate(2px, -2px);
+	}
+
+	.lanpaint-content .lanpaint-resource--explore {
+		min-height: 12.25rem;
+		padding: 1.3rem 1.35rem 1.25rem;
+		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 94%, var(--primary) 6%), color-mix(in oklab, var(--card-bg) 78%, var(--primary) 13%));
+	}
+
+	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-icon {
+		width: 2.2rem;
+		height: 2.2rem;
+		border-radius: 0.72rem;
+		font-size: 0.68rem;
+	}
+
+	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-name {
+		font-size: 1.25rem;
+		letter-spacing: -0.02em;
+	}
+
+	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-description {
+		font-size: 0.9rem;
+		line-height: 1.5;
+	}
+
+	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-arrow {
+		right: 1.35rem;
+		bottom: 1.25rem;
+		font-size: 1.2rem;
 	}
 
 	@media (max-width: 767px) {
@@ -210,6 +301,12 @@ const { title, description, headings = [] } = Astro.props;
 
 		.lanpaint-content .lanpaint-resource-grid {
 			grid-template-columns: 1fr;
+		}
+	}
+
+	@media (min-width: 768px) and (max-width: 1024px) {
+		.lanpaint-content .lanpaint-resource-grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 </style>
