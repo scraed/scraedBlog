@@ -168,12 +168,12 @@ const { title, description, headings = [] } = Astro.props;
 		align-items: flex-start;
 		gap: 0.7rem;
 		padding: 1.15rem 1.2rem 1.1rem;
-		border: 1px solid color-mix(in oklab, var(--line-divider) 82%, transparent);
-		border-radius: 1rem;
-		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 96%, var(--primary) 4%), color-mix(in oklab, var(--card-bg) 88%, var(--primary) 7%));
+		border: 1px solid color-mix(in oklab, var(--primary) 12%, var(--line-divider));
+		border-radius: 0.85rem;
+		background: color-mix(in oklab, var(--card-bg) 94%, var(--primary) 6%);
 		color: var(--tw-prose-body);
 		text-decoration: none;
-		box-shadow: 0 1px 0 color-mix(in oklab, var(--tw-prose-headings) 5%, transparent), 0 0.75rem 1.5rem color-mix(in oklab, var(--tw-prose-headings) 4%, transparent);
+		box-shadow: 0 0.5rem 1.2rem color-mix(in oklab, var(--primary) 6%, transparent);
 		transition: border-color 180ms ease, background 180ms ease, box-shadow 180ms ease, transform 180ms ease;
 	}
 
@@ -186,9 +186,9 @@ const { title, description, headings = [] } = Astro.props;
 	}
 
 	.lanpaint-content .lanpaint-resource:hover {
-		border-color: color-mix(in oklab, var(--primary) 55%, var(--lanpaint-rule));
-		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 92%, var(--primary) 8%), color-mix(in oklab, var(--card-bg) 78%, var(--primary) 14%));
-		box-shadow: 0 0.9rem 2rem color-mix(in oklab, var(--primary) 9%, transparent);
+		border-color: color-mix(in oklab, var(--primary) 38%, var(--line-divider));
+		background: color-mix(in oklab, var(--card-bg) 90%, var(--primary) 10%);
+		box-shadow: 0 0.75rem 1.6rem color-mix(in oklab, var(--primary) 9%, transparent);
 		transform: translateY(-3px);
 	}
 
@@ -196,21 +196,6 @@ const { title, description, headings = [] } = Astro.props;
 		display: flex;
 		align-items: center;
 		gap: 0.65rem;
-	}
-
-	.lanpaint-content .lanpaint-resource-icon {
-		display: grid;
-		width: 1.85rem;
-		height: 1.85rem;
-		place-items: center;
-		border: 1px solid color-mix(in oklab, var(--primary) 18%, transparent);
-		border-radius: 0.62rem;
-		background: color-mix(in oklab, var(--primary) 10%, var(--card-bg));
-		color: var(--primary);
-		font-size: 0.7rem;
-		font-weight: 800;
-		letter-spacing: 0.02em;
-		line-height: 1;
 	}
 
 	.lanpaint-content .lanpaint-resource-label {
@@ -257,14 +242,7 @@ const { title, description, headings = [] } = Astro.props;
 	.lanpaint-content .lanpaint-resource--explore {
 		min-height: 12.25rem;
 		padding: 1.3rem 1.35rem 1.25rem;
-		background: linear-gradient(145deg, color-mix(in oklab, var(--card-bg) 94%, var(--primary) 6%), color-mix(in oklab, var(--card-bg) 78%, var(--primary) 13%));
-	}
-
-	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-icon {
-		width: 2.2rem;
-		height: 2.2rem;
-		border-radius: 0.72rem;
-		font-size: 0.68rem;
+		background: color-mix(in oklab, var(--card-bg) 92%, var(--primary) 8%);
 	}
 
 	.lanpaint-content .lanpaint-resource--explore .lanpaint-resource-name {
@@ -304,9 +282,4 @@ const { title, description, headings = [] } = Astro.props;
 		}
 	}
 
-	@media (min-width: 768px) and (max-width: 1024px) {
-		.lanpaint-content .lanpaint-resource-grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
-	}
 </style>

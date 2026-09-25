@@ -16,7 +16,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
 <div class="lanpaint-resource-grid lanpaint-resource-grid--resources" aria-label="LanPaint resources">
   <a class="lanpaint-resource lanpaint-resource--paper" href="https://openreview.net/forum?id=JPC8JyOUSW" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">P</span>
       <span class="lanpaint-resource-label">Paper</span>
     </span>
     <span class="lanpaint-resource-name">TMLR / OpenReview</span>
@@ -25,7 +24,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--code" href="https://github.com/scraed/LanPaint" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">C</span>
       <span class="lanpaint-resource-label">Code</span>
     </span>
     <span class="lanpaint-resource-name">Official GitHub</span>
@@ -34,7 +32,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--model" href="https://huggingface.co/charrywhite/LanPaint" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">M</span>
       <span class="lanpaint-resource-label">Model</span>
     </span>
     <span class="lanpaint-resource-name">Hugging Face</span>
@@ -43,7 +40,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--research" href="https://github.com/scraed/LanPaintBench" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">B</span>
       <span class="lanpaint-resource-label">Research</span>
     </span>
     <span class="lanpaint-resource-name">LanPaintBench</span>
@@ -52,7 +48,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--integration" href="https://github.com/charrywhite/LanPaint-diffusers" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">D</span>
       <span class="lanpaint-resource-label">Integration</span>
     </span>
     <span class="lanpaint-resource-name">Diffusers</span>
@@ -61,7 +56,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--preprint" href="https://arxiv.org/abs/2502.03491" target="_blank" rel="noopener">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">A</span>
       <span class="lanpaint-resource-label">Preprint</span>
     </span>
     <span class="lanpaint-resource-name">arXiv:2502.03491</span>
@@ -77,7 +71,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
 <div class="lanpaint-resource-grid lanpaint-resource-grid--explore" aria-label="LanPaint pages">
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">01</span>
       <span class="lanpaint-resource-label">Overview</span>
     </span>
     <span class="lanpaint-resource-name">LanPaint project hub</span>
@@ -86,7 +79,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/conditional-sampling/">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">02</span>
       <span class="lanpaint-resource-label">Method</span>
     </span>
     <span class="lanpaint-resource-name">Conditional Sampling</span>
@@ -95,7 +87,6 @@ LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion
   </a>
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/local-editing/">
     <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-icon" aria-hidden="true">03</span>
       <span class="lanpaint-resource-label">Application</span>
     </span>
     <span class="lanpaint-resource-name">Local Editing</span>
