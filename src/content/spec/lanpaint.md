@@ -11,87 +11,17 @@ tags: [LanPaint]
 
 LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling”** by Candi Zheng, Yuan Lan, and Yang Wang.
 
-## Resources
-
-<div class="lanpaint-resource-grid lanpaint-resource-grid--resources" aria-label="LanPaint resources">
-  <a class="lanpaint-resource lanpaint-resource--paper" href="https://openreview.net/forum?id=JPC8JyOUSW" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Paper</span>
-    </span>
-    <span class="lanpaint-resource-name">TMLR / OpenReview</span>
-    <span class="lanpaint-resource-description">Read the original research paper</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--code" href="https://github.com/scraed/LanPaint" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Code</span>
-    </span>
-    <span class="lanpaint-resource-name">Official GitHub</span>
-    <span class="lanpaint-resource-description">ComfyUI implementation and workflows</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--model" href="https://huggingface.co/charrywhite/LanPaint" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Model</span>
-    </span>
-    <span class="lanpaint-resource-name">Hugging Face</span>
-    <span class="lanpaint-resource-description">Model files and related resources</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--research" href="https://github.com/scraed/LanPaintBench" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Research</span>
-    </span>
-    <span class="lanpaint-resource-name">LanPaintBench</span>
-    <span class="lanpaint-resource-description">Benchmark and reproduction code</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--integration" href="https://github.com/charrywhite/LanPaint-diffusers" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Integration</span>
-    </span>
-    <span class="lanpaint-resource-name">Diffusers</span>
-    <span class="lanpaint-resource-description">Hugging Face Diffusers implementation</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--preprint" href="https://arxiv.org/abs/2502.03491" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Preprint</span>
-    </span>
-    <span class="lanpaint-resource-name">arXiv:2502.03491</span>
-    <span class="lanpaint-resource-description">Open-access paper version</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">↗</span>
-  </a>
-</div>
-
----
-
 ## Explore LanPaint
 
 <div class="lanpaint-resource-grid lanpaint-resource-grid--explore" aria-label="LanPaint pages">
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Overview</span>
-    </span>
-    <span class="lanpaint-resource-name">LanPaint project hub</span>
-    <span class="lanpaint-resource-description">Start here for the method, scope, and resources</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">→</span>
+    <span class="lanpaint-resource-label">Overview</span>
   </a>
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/conditional-sampling/">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Method</span>
-    </span>
-    <span class="lanpaint-resource-name">Conditional Sampling</span>
-    <span class="lanpaint-resource-description">BiG Score, FLD, and the technical foundations</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">→</span>
+    <span class="lanpaint-resource-label">Method</span>
   </a>
   <a class="lanpaint-resource lanpaint-resource--explore" href="/scraedBlog/lanpaint/local-editing/">
-    <span class="lanpaint-resource-top">
-      <span class="lanpaint-resource-label">Application</span>
-    </span>
-    <span class="lanpaint-resource-name">Local Editing</span>
-    <span class="lanpaint-resource-description">Image, video, and audio editing workflows</span>
-    <span class="lanpaint-resource-arrow" aria-hidden="true">→</span>
+    <span class="lanpaint-resource-label">Application</span>
   </a>
 </div>
 
