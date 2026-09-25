@@ -6,9 +6,32 @@
 
 LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling”** by Candi Zheng, Yuan Lan, and Yang Wang.
 
-**Paper:** [TMLR / OpenReview](https://openreview.net/forum?id=JPC8JyOUSW) · [arXiv:2502.03491](https://arxiv.org/abs/2502.03491)  
-**Code:** [GitHub](https://github.com/scraed/LanPaint) · [Hugging Face](https://huggingface.co/charrywhite/LanPaint)  
-**Research:** [Benchmark](https://github.com/scraed/LanPaintBench) · [Diffusers Implementation](https://github.com/charrywhite/LanPaint-diffusers)
+<div class="lanpaint-resource-grid" aria-label="LanPaint resources">
+  <a class="lanpaint-resource" href="https://openreview.net/forum?id=JPC8JyOUSW" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Paper</span>
+    <span class="lanpaint-resource-name">TMLR / OpenReview ↗</span>
+  </a>
+  <a class="lanpaint-resource" href="https://github.com/scraed/LanPaint" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Code</span>
+    <span class="lanpaint-resource-name">Official GitHub ↗</span>
+  </a>
+  <a class="lanpaint-resource" href="https://huggingface.co/charrywhite/LanPaint" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Model</span>
+    <span class="lanpaint-resource-name">Hugging Face ↗</span>
+  </a>
+  <a class="lanpaint-resource" href="https://github.com/scraed/LanPaintBench" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Research</span>
+    <span class="lanpaint-resource-name">LanPaintBench ↗</span>
+  </a>
+  <a class="lanpaint-resource" href="https://github.com/charrywhite/LanPaint-diffusers" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Integration</span>
+    <span class="lanpaint-resource-name">Diffusers ↗</span>
+  </a>
+  <a class="lanpaint-resource" href="https://arxiv.org/abs/2502.03491" target="_blank" rel="noopener">
+    <span class="lanpaint-resource-label">Preprint</span>
+    <span class="lanpaint-resource-name">arXiv:2502.03491 ↗</span>
+  </a>
+</div>
 
 ---
 
