@@ -11,25 +11,6 @@ tags: [LanPaint]
 
 LanPaint was introduced in the TMLR paper **“LanPaint: Training-Free Diffusion Inpainting with Asymptotically Exact and Fast Conditional Sampling”** by Candi Zheng, Yuan Lan, and Yang Wang.
 
-## Resources
-
-<div class="lanpaint-resource-grid lanpaint-resource-grid--resources" aria-label="LanPaint resources">
-  <a class="lanpaint-resource lanpaint-resource--paper" href="https://openreview.net/forum?id=JPC8JyOUSW" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-label">Paper</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--code" href="https://github.com/scraed/LanPaint" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-label">Code</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--model" href="https://huggingface.co/charrywhite/LanPaint" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-label">Model</span>
-  </a>
-  <a class="lanpaint-resource lanpaint-resource--research" href="https://github.com/scraed/LanPaintBench" target="_blank" rel="noopener">
-    <span class="lanpaint-resource-label">Research</span>
-  </a>
-</div>
-
----
-
 ## Explore LanPaint
 
 <div class="lanpaint-resource-grid lanpaint-resource-grid--explore" aria-label="LanPaint pages">

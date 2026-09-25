@@ -176,7 +176,7 @@ const { title, description, headings = [] } = Astro.props;
 	.lanpaint-content a.lanpaint-resource:not(.no-styling),
 	.lanpaint-content a.lanpaint-resource:not(.no-styling):hover,
 	.lanpaint-content a.lanpaint-resource:not(.no-styling):active {
-		border-bottom: 0;
+		border-bottom: 1px solid color-mix(in oklab, var(--primary) 22%, var(--line-divider));
 		text-decoration: none;
 	}
 
@@ -196,10 +196,6 @@ const { title, description, headings = [] } = Astro.props;
 
 	.lanpaint-content .lanpaint-resource--explore {
 		min-height: 8.5rem;
-	}
-
-	.lanpaint-content .lanpaint-resource-grid--resources .lanpaint-resource:last-child {
-		grid-column: 2;
 	}
 
 	@media (max-width: 767px) {
@@ -222,9 +218,6 @@ const { title, description, headings = [] } = Astro.props;
 			grid-template-columns: 1fr;
 		}
 
-		.lanpaint-content .lanpaint-resource-grid--resources .lanpaint-resource:last-child {
-			grid-column: auto;
-		}
 	}
 
 </style>
