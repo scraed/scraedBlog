@@ -1,3 +1,8 @@
+---
+category: LanPaint
+tags: [LanPaint]
+---
+
 # LanPaint for Training-Free Local Editing
 
 ## Mask-Constrained Generation for Images, Video, and Audio

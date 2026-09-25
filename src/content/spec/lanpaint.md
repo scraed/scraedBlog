@@ -1,3 +1,8 @@
+---
+category: LanPaint
+tags: [LanPaint]
+---
+
 # LanPaint
 
 ## Training-Free Conditional Sampling for Inpainting and Local Image Editing
