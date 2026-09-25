@@ -1,0 +1,21 @@
+---
+import { getEntry, render } from "astro:content";
+
+import LanPaintPage from "@components/LanPaintPage.astro";
+
+const localEditingPage = await getEntry("spec", "local-editing");
+
+if (!localEditingPage) {
+	throw new Error("LanPaint local-editing page content not found");
+}
+
+const { Content, headings } = await render(localEditingPage);
+---
+
+<LanPaintPage
+	title="LanPaint for Training-Free Local Editing: Images, Video, and Audio"
+	description="How LanPaint enables training-free mask-constrained generation for local image editing, video inpainting, video outpainting, and masked video-audio generation."
+	headings={headings}
+>
+	<Content />
+</LanPaintPage>

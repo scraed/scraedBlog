@@ -45,6 +45,8 @@ The method uses carefully designed Langevin dynamics to perform fast, backpropag
 
 This makes LanPaint useful not only as an inpainting method, but more generally as a **training-free mechanism for spatially constrained generation and local editing**.
 
+For the local-editing perspective, see [LanPaint for Training-Free Local Editing](/scraedBlog/lanpaint/local-editing/).
+
 ---
 
 ## Is LanPaint only an image inpainting method?
