@@ -1,0 +1,21 @@
+---
+import { getEntry, render } from "astro:content";
+
+import LanPaintPage from "@components/LanPaintPage.astro";
+
+const conditionalSamplingPage = await getEntry("spec", "conditional-sampling");
+
+if (!conditionalSamplingPage) {
+	throw new Error("LanPaint conditional-sampling page content not found");
+}
+
+const { Content, headings } = await render(conditionalSamplingPage);
+---
+
+<LanPaintPage
+	title="LanPaint: Training-Free Partial Conditional Sampling with Langevin Dynamics"
+	description="A technical guide to LanPaint's BiG Score and Fast Langevin Dynamics for training-free partial conditional sampling with diffusion and rectified-flow models."
+	headings={headings}
+>
+	<Content />
+</LanPaintPage>
